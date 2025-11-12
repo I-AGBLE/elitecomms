@@ -9,10 +9,11 @@ require_once 'partials/header.php';
 
 // Verify user is logged in (if required)
 if (empty($_SESSION['user_id']) || !is_numeric($_SESSION['user_id'])) {
-  $_SESSION['comment'] = "You must be logged in to view this page";
-  header('Location: ' . htmlspecialchars(ROOT_URL . 'signin.php', ENT_QUOTES, 'UTF-8'));
+  $_SESSION['signin'] = "Login Required!";
+  header('Location: ' . htmlspecialchars(ROOT_URL, ENT_QUOTES, 'UTF-8'));
   exit;
 }
+
 
 // fetch scroll if id is inclusive in link
 if (isset($_GET['id'])) {
@@ -87,6 +88,10 @@ if ($scroll_id > 0) {
   <section class="main_left">
     <!--Update -->
   </section>
+
+
+
+
 
   <section class="main_content">
     <?php if (isset($_SESSION['comment'])) : ?>
@@ -184,6 +189,9 @@ if ($scroll_id > 0) {
 
 
 
+
+
+
     <section class="dashboard">
       <div class="my_posts_contents">
         <div class="my_posts">
@@ -202,7 +210,7 @@ if ($scroll_id > 0) {
                 </div>
 
                 <div class="user_name">
-                  <h4><?= htmlspecialchars($tribesmen['username'], ENT_QUOTES, 'UTF-8') ?></h4>
+                  <h4><?= $tribesmen['username'] ?></h4>
                 </div>
 
                 <?php if (isset($tribesmen['is_admin']) && $tribesmen['is_admin'] == 1): ?>
@@ -342,7 +350,7 @@ if ($scroll_id > 0) {
               <div class="comment_input">
                 <div class="comment_field">
                   <textarea name="user_comment" placeholder="Share your comment on this post..."></textarea>
-                  <input type="text" name="confirm_human" placeholder="confirm_human" class="confirm_human" style="display: none;">
+                  <input type="text" name="confirm_human" placeholder="confirm_human" class="confirm_human">
                   <input type="submit" name="Comment" value="Comment">
                 </div>
               </div>
@@ -416,10 +424,12 @@ if ($scroll_id > 0) {
                     </div>
                   </div>
 
+
+
             <?php
                 endwhile;
               else :
-                echo "<p>No comments yet.</p>";
+                echo "<p> This post has no comment yet!</p>";
               endif;
             } else {
               echo "<p>Invalid scroll ID.</p>";

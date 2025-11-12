@@ -57,6 +57,7 @@ if (empty($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
           ?>
         </p>
       </div>
+
       
     <?php elseif (isset($_SESSION['delete_profile'])) : ?>
       <div class="alert_message error" id="alert_message">

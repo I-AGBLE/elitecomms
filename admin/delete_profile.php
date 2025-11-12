@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
     // Sanitize and validate id
     $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
 
-    // Only proceed if $id is valid and user is authenticated
+    //  proceed if $id is valid and user is authenticated
     if ($id && isset($_SESSION['user_id']) && $_SESSION['user_id'] == $id) {
         // Fetch the user securely
         $query = "SELECT avatar FROM tribesmen WHERE id = ?";

@@ -7,9 +7,13 @@ if (isset($_GET['id'])) {
 // sanitize id 
 $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
 
-// Fetch the post (scroll)
-$query = "SELECT * FROM scrolls WHERE id=$id";
-$result = mysqli_query($connection, $query);
+// Fetch the post (scroll) securely using a prepared statement
+$query = "SELECT * FROM scrolls WHERE id = ?";
+$stmt = mysqli_prepare($connection, $query);
+mysqli_stmt_bind_param($stmt, "i", $id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+
 
 // Check if scroll exists
 if (mysqli_num_rows($result) == 1) {

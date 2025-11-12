@@ -16,7 +16,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
   if (!$user_detail) {
     // Redirect if user does not exist
-    header("Location: " . ROOT_URL . "index.php");
+    header("Location: " . ROOT_URL );
     exit();
   }
 
@@ -55,7 +55,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 } else {
   // Redirect if ID is invalid or not set
-  header("Location: " . ROOT_URL . "index.php");
+  header("Location: " . ROOT_URL );
   exit();
 }
 ?>

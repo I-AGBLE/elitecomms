@@ -1,6 +1,6 @@
 <?php
-
 require_once 'partials/header.php';
+
 
 // Verify user is logged in and session user_id is valid
 if (empty($_SESSION['user_id']) || !is_numeric($_SESSION['user_id'])) {
@@ -32,6 +32,7 @@ if (isset($_GET['id'])) {
         header("Location: " . ROOT_URL . "admin/");
         exit();
     }
+
     mysqli_stmt_bind_param($stmt, "i", $id);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
@@ -105,7 +106,7 @@ if (empty($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
                 <label for="avatar">
                     <i class="fa-solid fa-image"></i>
                 </label>
-                <input type="file" id="avatar" name="avatar" accept="image/jpeg,image/png,image/gif,image/jpg, image/webp, image/svg" style="display: none;" />
+                <input type="file" id="avatar" name="avatar" accept="image/jpeg, image/png,image/gif,image/jpg, image/webp, image/svg" style="display: none;" />
 
                 <div id="file-names"></div>
 

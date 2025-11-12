@@ -3,7 +3,7 @@ require_once 'config/database.php';
 
 // Verify user is logged in
 if (empty($_SESSION['user_id']) || !is_numeric($_SESSION['user_id'])) {
-    $_SESSION['follow'] = 'You must be logged in to follow someone!';
+    $_SESSION['follow'] = 'Login Required!';
     header('Location: ' . ROOT_URL);
     exit();
 }
@@ -35,12 +35,13 @@ if (isset($_GET['id'])) {
         header('Location: ' . ROOT_URL . 'admin/profiles.php?id=' . $followed . '#my_posts');
         exit();
     }
+
     mysqli_stmt_bind_param($stmt, "ii", $follower, $followed);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_store_result($stmt);
 
     if (mysqli_stmt_num_rows($stmt) > 0) {
-        // Already following, so unfollow
+        // Already following?  unfollow
         mysqli_stmt_close($stmt);
         $delete_query = "DELETE FROM followers WHERE follower=? AND followed=?";
         $stmt = mysqli_prepare($connection, $delete_query);
@@ -52,7 +53,7 @@ if (isset($_GET['id'])) {
             $_SESSION['follow'] = 'Unable To Perform Database Action.';
         }
     } else {
-        // Not following yet, so follow
+        // Not following? follow
         mysqli_stmt_close($stmt);
         $insert_query = "INSERT INTO followers (follower, followed) VALUES (?, ?)";
         $stmt = mysqli_prepare($connection, $insert_query);

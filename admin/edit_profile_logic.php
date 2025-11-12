@@ -157,6 +157,8 @@ if (isset($_POST['submit'])) {
         header('Location: ' . ROOT_URL . 'admin/edit_profile.php?id=' . urlencode($id));
         exit();
     }
+
+    
 } else {
     header('Location: ' . ROOT_URL . 'admin/user_profile.php');
     exit();
