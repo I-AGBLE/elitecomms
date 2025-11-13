@@ -50,7 +50,7 @@ require 'config/database.php';
     <nav>
         <div class="nav_logo">
             <a href="<?= ROOT_URL ?>">
-                <h4>elite<span>Tribes</span></h4>
+                <h4>elite<span>comms</span></h4>
             </a>
         </div>
 

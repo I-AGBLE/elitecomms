@@ -77,12 +77,6 @@ $stmt->close();
                                 <div class="username">
                                     <h4><?= $user['username'] ?></h4>
                                 </div>
-
-                                <?php if (isset($user['is_admin']) && $user['is_admin'] == 1): ?>
-                                   <div class="admin_flag">
-                                        <img src="../../images/admin_flag.gif" alt="Admin Flag" />
-                                    </div>
-                                <?php endif; ?>
                             </a>
 
                             <div class="user_details_post_time">

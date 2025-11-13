@@ -117,13 +117,6 @@ $stmt->close();
                                 <div class="user_name">
                                     <h4><?= $tribesmen['username'] ?></h4>
                                 </div>
-
-
-                                <?php if (isset($tribesmen['is_admin']) && $tribesmen['is_admin'] == 1): ?>
-                                    <div class="admin_flag">
-                                        <img src="../../images/admin_flag.gif" alt="Admin Flag" />
-                                    </div>
-                                <?php endif; ?>
                             </a>
 
                             <div class="user_details_post_time">

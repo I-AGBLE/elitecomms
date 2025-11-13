@@ -89,12 +89,6 @@ if ($current_user_id === false || $current_user_id === null) {
                                     <?= $tribesmen['username']  ?>
                                 </h4>
                             </div>
-
-                            <?php if (isset($tribesmen['is_admin']) && $tribesmen['is_admin'] == 1): ?>
-                                <div class="admin_flag">
-                                    <img src="../images/admin_flag.gif" alt="Admin Flag" />
-                                </div>
-                            <?php endif; ?>
                         </a>
 
 
@@ -252,7 +246,7 @@ if ($current_user_id === false || $current_user_id === null) {
 
 
     <?php else : ?>
-        <h3>Share a story, an idea, or just a thought. The tribesmen would be pleased to hear from you</h3>
+        <h3>Share a story, an idea, or just a thought. The community would be pleased to know what's happening at your end.</h3>
     <?php endif ?>
 </div>
 

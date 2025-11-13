@@ -84,15 +84,6 @@ if (isset($_SESSION['user_id'])) {
         <div class="user_name">
           <h4><?= $user_detail['username'] ?></h4>
         </div>
-
-
-        <?php if (isset($user_detail['is_admin']) && $user_detail['is_admin'] == 1): ?>
-          <div class="admin_flag">
-            <img src="../../images/admin_flag.gif" alt="Admin Flag" />
-          </div>
-        <?php endif; ?>
-
-
       </a>
     </div>
 
@@ -101,7 +92,7 @@ if (isset($_SESSION['user_id'])) {
       <div class="logo_wrapper">
         <div class="logo">
           <div class="logo_name">
-            <h4>elite<span>Tribes</span></h4>
+            <h4>elite<span>comms</span></h4>
           </div>
           <div class="menu_icon">
             <i class="fa-solid fa-bars"></i>
@@ -118,6 +109,7 @@ if (isset($_SESSION['user_id'])) {
 
               <?php if (isset($user_detail['is_admin']) && $user_detail['is_admin'] == 1): ?>
                 <li><a href="<?= ROOT_URL ?>admin/dev_mod/" id="dev_mod">Dev Mod</a></li>
+                 <li><a href="<?= ROOT_URL ?>admin/signup.php" id="dev_mod">New User</a></li>
               <?php endif; ?>
 
 

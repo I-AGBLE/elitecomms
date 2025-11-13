@@ -35,7 +35,7 @@ unset($_SESSION['signup_data']);
   <div class="main_log">
     <div class="hero_section">
       <div class="hero_title">
-        <h1>Sign Up To Get Your Voice Heard!</h1>
+        <h1>Register New User</h1>
       </div>
 
       <div class="hero_sub">
@@ -94,37 +94,11 @@ unset($_SESSION['signup_data']);
       </div>
     </form>
 
-    <div class="log_session">
-      <div class="log_container">
-        <div class="google">
-          <a href="">
-            <span><i class="fa-brands fa-google"></i></span>
-            Sign up with Google
-          </a>
-        </div>
 
-        <div class="apple">
-          <a href="">
-            <span><i class="fa-brands fa-apple"></i></span>
-            Sign up with Apple
-          </a>
-        </div>
 
-        <div class="loginorout">
-          <p>Already have an account?</p>
-          <a href="index.php">Login Now!</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="extras">
-      <p>
-        Lorem ipsum dolor sit <a href="<?= ROOT_URL ?>about.php">About Us</a> amet consectetur adipisicing elit. Esse deleniti provident eveniet! <a href="<?= ROOT_URL ?>tnc.php">Terms And Conditions</a> Porro quasi omnis recusandae rem, unde ab ipsum.
-      </p>
-    </div>
   </div>
 </main>
 
 <?php
-include 'partials/footer.php';
+include '../partials/footer.php';
 ?>

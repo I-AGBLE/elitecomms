@@ -117,7 +117,7 @@ if (empty($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
 
             <div class="delete_profile">
                 <p>
-                    Looking to leave the tribesmen? Click
+                    Looking to leave the elitecomms platform? Click
                     <a href="<?= htmlspecialchars(ROOT_URL, ENT_QUOTES, 'UTF-8') ?>admin/delete_profile.php?id=<?= htmlspecialchars($tribesmen['id'], ENT_QUOTES, 'UTF-8') ?>" class="delete_btn">here</a>
                     to delete your account.
                 </p>

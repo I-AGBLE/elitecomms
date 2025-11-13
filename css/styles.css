@@ -1649,6 +1649,7 @@ main .my_posts_contents:hover {
 /* Footer */
 footer {
   background: var(--nav_bg);
+  z-index: 10000;
   position: fixed;
   left: 0;
   bottom: 0;

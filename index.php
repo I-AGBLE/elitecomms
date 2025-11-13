@@ -90,32 +90,6 @@ $confirm_human = $_SESSION['signin_data']['confirm_human'] ?? null;;
 
 
 
-    <div class="log_session">
-      <div class="log_container">
-        <div class="google">
-          <a href="admin/index.php">
-            <span><i class="fa-brands fa-google"></i></span>
-            Log in with Google
-          </a>
-        </div>
-
-        <div class="apple">
-          <a href="">
-            <span><i class="fa-brands fa-apple"></i></span>
-            Log in with Apple
-          </a>
-        </div>
-
-        <div class="loginorout">
-          <p>Don't have an account with us?</p>
-          <a href="signup.php">Sign Up Today!</a>
-        </div>
-      </div>
-
-
-    </div>
-
-
 
     <div class="extras">
       <p>

@@ -69,12 +69,6 @@ if (!isset($_SESSION['csrf_token'])) {
                                     <?= $tribesmen['username'] ?>
                                 </h4>
                             </div>
-
-                            <?php if (isset($tribesmen['is_admin']) && $tribesmen['is_admin'] == 1): ?>
-                                <div class="admin_flag">
-                                    <img src="../images/admin_flag.gif" alt="Admin Flag" />
-                                </div>
-                            <?php endif; ?>
                         </a>
 
 

@@ -84,7 +84,7 @@ $stmt->close();
 
 
 
-
+<!-- user profile details -->
     <div class="user_section">
       <div class="user_information">
         <div class="user_picture">
@@ -123,10 +123,15 @@ $stmt->close();
 
 
 
+
+
     <section class="dashboard">
 
+   <!-- user's posts section -->
       <?php include 'page_essentials/my_posts.php'; ?>
 
+
+  <!-- posts of user's follower's posts -->
       <div class="feed" id="feed" style="display: none;">
         <div class="my_dashboard">
           <div class="my_dashboard_title">
@@ -143,7 +148,7 @@ $stmt->close();
       </div>
 
 
-      
+  <!-- posts of user's followings -->
       <div class="following" id="following" style="display: none;">
         <div class="my_dashboard">
           <div class="my_dashboard_title">

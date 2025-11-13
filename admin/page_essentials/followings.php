@@ -56,13 +56,6 @@
                             <div class="username">
                                 <h4><?= $username ?></h4>
                             </div>
-
-
-                            <?php if (isset($followers_row['is_admin']) && $followers_row['is_admin'] == 1): ?>
-                                    <div class="admin_flag">
-                                        <img src="../images/admin_flag.gif" alt="Admin Flag" />
-                                </div>
-                            <?php endif; ?>
                         </a>
                     </div>
                 </div>

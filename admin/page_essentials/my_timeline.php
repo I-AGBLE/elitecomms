@@ -72,13 +72,6 @@ $result = mysqli_stmt_get_result($stmt);
           <div class="user_name">
             <h4><?= $feed['username'] ?></h4>
           </div>
-
-
-          <?php if (isset($feed['is_admin']) && $feed['is_admin'] == 1): ?>
-            <div class="admin_flag">
-              <img src="../images/admin_flag.gif" alt="Admin Flag" />
-            </div>
-          <?php endif; ?>
         </a>
 
         <div class="user_details_post_time">
