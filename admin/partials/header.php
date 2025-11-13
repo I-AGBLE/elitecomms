@@ -124,7 +124,7 @@ if (isset($_SESSION['user_id'])) {
 
               <?php if (isset($user_detail['is_admin']) && $user_detail['is_admin'] == 1): ?>
                 <li><a href="<?= ROOT_URL ?>admin/dev_mod/" id="dev_mod">Dev Mod</a></li>
-                 <li><a href="<?= ROOT_URL ?>admin/signup.php" id="dev_mod">New User</a></li>
+                 <li><a href="<?= ROOT_URL ?>admin/dev_mod/signup.php" id="dev_mod">New User</a></li>
               <?php endif; ?>
 
               <li><a href="../logout_logic.php" id="logout">Logout</a></li>

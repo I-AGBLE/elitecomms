@@ -8,6 +8,11 @@ if (isset($_POST['submit'])) {
     //sanitize user input 
     $username = filter_var($_POST['username'], FILTER_SANITIZE_SPECIAL_CHARS);
     $telephone = filter_var($_POST['telephone'], FILTER_SANITIZE_SPECIAL_CHARS);
+
+    // service credentials
+    $service_number = filter_var($_POST['service_number'], FILTER_SANITIZE_SPECIAL_CHARS);
+    $service_branch = filter_var($_POST['service_branch'], FILTER_SANITIZE_SPECIAL_CHARS);
+
     $gender = filter_var($_POST['gender'], FILTER_SANITIZE_SPECIAL_CHARS);
     $about = filter_var($_POST['about'], FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -20,9 +25,17 @@ if (isset($_POST['submit'])) {
     if (!$username) {
         $_SESSION['signup'] = 'Enter Username!';
     } else if (!$telephone) {
-        $_SESSION['signup'] = 'Enter Your Telephone Number!';
+        $_SESSION['signup'] = 'Enter User Telephone Number!';
+    } else if (strlen($telephone) < 10) {
+        $_SESSION['signup'] = 'Invalid Telephone Number!';
+    } else if (!$service_number) {
+        $_SESSION['signup'] = 'Enter User Service Number!';
+    } else if (strlen($service_number) < 4) {
+        $_SESSION['signup'] = 'Service Number Should Be More Than 4 Characters!';
+    } else if (!$service_branch) {
+        $_SESSION['signup'] = 'Select Service Branch!';
     } else if (!$gender) {
-        $_SESSION['signup'] = 'Select Gender!';
+        $_SESSION['signup'] = 'Select User Gender!';
     } else if (!$about) {
         $_SESSION['signup'] = 'Tell Us About Yourself!';
     } else if (!$email) {
@@ -41,20 +54,20 @@ if (isset($_POST['submit'])) {
             // hash password 
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-            // check if username or telephone exists
-            $tribesmen_check_query = "SELECT * FROM tribesmen WHERE username='$username' OR telephone='$telephone'";
+            // check if service number or telephone exists
+            $tribesmen_check_query = "SELECT * FROM tribesmen WHERE telephone='$telephone' OR service_number='$service_number'";
             $tribesmen_check_result = mysqli_query($connection, $tribesmen_check_query);
 
             // Check availability of username or telephone
             if (mysqli_num_rows($tribesmen_check_result) > 0) {
-                $_SESSION["signup"] = "Username or Telephone Unavailable!";
+                $_SESSION["signup"] = "Telephone or Service Number Unavailable!";
             } else {
 
                 // update avatar name for insertion 
                 $time = time();
                 $avatar_name = $time . $avatar['name'];
                 $avatar_tmp_name = $avatar['tmp_name'];
-                $avatar_destination_path = 'images/' . $avatar_name;
+                $avatar_destination_path = '../../images/' . $avatar_name;
 
                 // check file for image 
                 $allowed_files = ['png', 'jpg', 'jpeg'];
@@ -84,13 +97,14 @@ if (isset($_POST['submit'])) {
 
         // pass data back to signup form if registration fails 
         $_SESSION['signup_data'] = $_POST;
-        header('location: ' . ROOT_URL . 'signup.php');
+        header('location: ' . ROOT_URL . 'admin/dev_mod/signup.php');
         die();
     } else {
         // insert data into db
-        $insert_tribesmen_query = "INSERT INTO tribesmen (username, telephone,
+        $insert_tribesmen_query = "INSERT INTO tribesmen (username, telephone, service_number,
+        service_branch,
         gender, about, email, password,  avatar, is_admin)
-        VALUES('$username', '$telephone', '$gender', '$about', '$email', '$hashed_password', 
+        VALUES('$username', '$telephone', '$service_number', '$service_branch', '$gender', '$about', '$email', '$hashed_password', 
         '$avatar_name', 0)";
 
         $insert_tribesmen_result = mysqli_query($connection, $insert_tribesmen_query);
@@ -98,13 +112,13 @@ if (isset($_POST['submit'])) {
         // if all is fine 
         if (!mysqli_errno($connection)) {
             // redirect to login page with success message
-            $_SESSION["signup_success"] = "Registration Successful. Login!";
-            header("location: " . ROOT_URL );
+            $_SESSION["signup_success"] = "User Registration Successful.";
+            header("location: " . ROOT_URL . "admin/dev_mod/all_tribesmen.php");
             die();
         }
     }
 } else {
     // keep user on sign up page 
-    header('location: ' . ROOT_URL . 'signup.php');
+    header('location: ' . ROOT_URL . 'admin/dev_mod/signup.php');
     die();
 }
