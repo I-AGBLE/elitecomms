@@ -16,7 +16,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
   if (!$user_detail) {
     // Redirect if user does not exist
-    header("Location: " . ROOT_URL );
+    header("Location: " . ROOT_URL);
     exit();
   }
 
@@ -51,11 +51,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
   $followersData = $stmt->get_result()->fetch_assoc();
   $followersCount = $followersData['total_followers'] ?? 0;
   $stmt->close();
-
-
 } else {
   // Redirect if ID is invalid or not set
-  header("Location: " . ROOT_URL );
+  header("Location: " . ROOT_URL);
   exit();
 }
 ?>
@@ -114,8 +112,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <div class="user_info">
           <div class="name">
             <h3><?= $user_detail['username'] ?></h3>
+            <p><?= $user_detail['service_number'] ?></p>
+          </div>
 
-            
+          <div class="name">
+            <h3><?= $user_detail['service_branch'] ?></h3>
           </div>
 
           <div class="about">

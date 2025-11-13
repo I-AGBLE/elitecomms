@@ -94,6 +94,11 @@ $stmt->close();
         <div class="user_info">
           <div class="name">
             <h3><?= $user_detail['username'] ?></h3>
+            <p><?= $user_detail['service_number'] ?></p>
+          </div>
+
+           <div class="name">
+            <h3><?= $user_detail['service_branch'] ?></h3>
           </div>
 
           <div class="about">
