@@ -3,7 +3,7 @@ include 'partials/header.php';
 
 
 // get inputs from failed login
-$telephone_or_username = $_SESSION['signin_data']['telephone_or_username'] ?? null;
+$service_number_or_email = $_SESSION['signin_data']['service_number_or_email'] ?? null;
 $password = $_SESSION['signin_data']['password'] ?? null;;
 $confirm_human = $_SESSION['signin_data']['confirm_human'] ?? null;;
 
@@ -78,7 +78,7 @@ $confirm_human = $_SESSION['signin_data']['confirm_human'] ?? null;;
     <form action="<?= ROOT_URL ?>index_logic.php" method="POST">
 
       <div class="standard_login">
-        <input type="text" id="username" name="telephone_or_username" value="<?= $telephone_or_username ?>" placeholder="Telephone or Username" autofocus>
+        <input type="text" id="service_number_or_email" name="service_number_or_email" value="<?= $service_number_or_email ?>" placeholder="Service Number or Email" autofocus>
         <input type="password" name="password" value="<?= $password ?>" placeholder="Password">
         <input type="text" name="confirm_human" value="<?= $confirm_human ?>" placeholder="confirm_human" class="confirm_human">
         <input type="submit" name="submit" value="Login">
@@ -95,7 +95,9 @@ $confirm_human = $_SESSION['signin_data']['confirm_human'] ?? null;;
 
     <div class="extras">
       <p>
-        Lorem ipsum dolor sit <a href="<?= ROOT_URL ?>about.php">About Us</a> amet consectetur adipising elit. Esse deleniti provident eveniet! <a href="<?= ROOT_URL ?>tnc.php">Terms And Conditions</a> Porro quasi omnis recusandae rem, unde ab ipsum.
+        Want to know more  <a href="<?= ROOT_URL ?>about.php">About Us</a>? Take
+        some time to read our <a href="<?= ROOT_URL ?>tnc.php">Terms And Conditions</a> 
+        to know about our community guidelines.
       </p>
     </div>
   </div>

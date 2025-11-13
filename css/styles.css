@@ -108,6 +108,10 @@
   text-transform: capitalize;
 }
 
+#service_number_or_email {
+  text-transform: lowercase;
+}
+
 /* General Font Styles */
 h1,
 h2,
@@ -471,7 +475,7 @@ nav:hover {
   -moz-transition: var(--transition);
   -ms-transition: var(--transition);
   -o-transition: var(--transition);
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 .user_name h4 {

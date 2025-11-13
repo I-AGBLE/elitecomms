@@ -44,8 +44,16 @@ unset($_SESSION['signup_data']);
 
       <div class="hero_sub">
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste est exercitationem placeat accusantium dolore molestiae distinctio quod cum eaque vitae.
+          Please complete the form below to register a new officer into the system.
+           Ensure that all details provided are accurate and correspond to the officer’s 
+           official service records.
+          Each officer must have a valid <strong>Service Number</strong> and be assigned to the 
+          correct <strong>Service Branch</strong>
+          (e.g., Ghana Police Service, Ghana Armed Forces, Ghana Immigration Service, etc.).
+          The service number must be unique and should not contain spaces.
+          After submission, the new user will receive access credentials to log in and participate in secure communication within their assigned sector.
         </p>
+
       </div>
     </div>
 
@@ -56,7 +64,7 @@ unset($_SESSION['signup_data']);
       <div class="standard_login">
 
 
-      
+
         <input type="text" id="username" name="username" value="<?= $username ?>" placeholder="Full Name" maxlength="50" pattern="[A-Za-z0-9_ ]{3,50}" autofocus>
         <input type="tel" name="telephone" value="<?= $telephone ?>" placeholder="Telephone" maxlength="13" pattern="[0-9+\-\s]{7,20}">
 

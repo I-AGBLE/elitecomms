@@ -4,21 +4,21 @@ require 'config/database.php';
 // if submit is clicked 
 if (isset($_POST['submit'])) {
     // sanitize user input
-    $telephone_or_username = filter_var($_POST['telephone_or_username'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $service_number_or_email = filter_var($_POST['service_number_or_email'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $password = filter_var($_POST['password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $confirm_human = filter_var($_POST['confirm_human'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
     // validate user input 
-    if (!$telephone_or_username) {
-        $_SESSION['signin'] = 'Enter Username or Telephone!';
+    if (!$service_number_or_email) {
+        $_SESSION['signin'] = 'Enter Service Number or Email!';
     } elseif (!$password) {
         $_SESSION['signin'] = 'Enter Password!';
     } elseif (!empty($confirm_human)) {
         $_SESSION['signin'] = 'Somethings Are Made For Humans Only!';
     } else {
         // fetch user from db
-        $fetch_tribesman_query = "SELECT * FROM tribesmen WHERE username = '$telephone_or_username' OR
-        telephone = '$telephone_or_username'";
+        $fetch_tribesman_query = "SELECT * FROM tribesmen WHERE service_number = '$service_number_or_email' OR
+        email = '$service_number_or_email'";
         $fetch_tribesmen_result = mysqli_query($connection, $fetch_tribesman_query);
 
         // find one matching record 
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
                 }
 
                 // log user in
-                $_SESSION["signin_success"] = "Welcome To The Elite Tribes";
+                $_SESSION["signin_success"] = "Welcome To The Elite Communications Platform";
                 header("location: " . ROOT_URL . "admin/");
                 die();
 
