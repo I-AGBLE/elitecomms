@@ -14,46 +14,42 @@ include 'partials/header.php';
 
 
 <main>
-  <center>
-    <section id="about">
+  <section id="about">
+    <center>
+      <h1>The elite<span>comms</span>:</h1>
+      <p>
+        THE DESIGN AND IMPLEMENTATION OF CROSS-SECTOR COMMUNICATION
+        FRAMEWORK FOR GHANA’S SECURITY AGENCIES
+      </p>
+      <br>
+    </center>
 
-  <h1>About elitecomms</h1>
+    <p>
+      This project, developed in partial fulfillment of
+      the requirements for the award of the Master of
+      Science in Information Technology, presents a cross-sector
+      Security Information Management System designed to enhance secure
+      communication and collaboration among national security institutions.
 
-  <p>
-    The Multi-Agency Security Information Management System is a web-based platform designed to enhance collaboration and secure communication among national security agencies. It provides a centralized medium for recording, managing, and monitoring operational data in real-time, improving coordination, transparency, and efficiency across departments.
-  </p>
+      The system provides a unified digital platform that enables authorized
+      agencies to share, manage, and verify critical information in real time,
+      thereby overcoming the persistent challenges of fragmented communication channels,
+      delayed information flow, and reliance on unsecured third-party applications.
+     
+      By integrating features such as user authentication, role-based access
+      control, and centralized data management, the system strengthens inter-agency
+      coordination and reduces the risk of misinformation and cyber threats.
+     
+      Its implementation ensures improved operational efficiency,
+      faster decision-making during emergencies, and protection of sensitive
+      national data from external interference. Ultimately, this system
+      serves as a strategic technological framework aimed at promoting
+      interoperability, transparency, and data sovereignty within the
+      national security communication infrastructure.
+    </p>
 
-  <p>
-    The system aims to address challenges associated with delayed information flow, data duplication, and lack of unified communication platforms. By integrating all security agencies under one digital framework, it ensures faster response during emergencies and promotes effective information sharing.
-  </p>
 
-  <p>
-    The primary objectives of the system are to streamline inter-agency correspondence, provide role-based access control, and ensure secure data exchange between authorized users. It also focuses on maintaining system integrity, confidentiality, and auditability through proper authentication and encryption mechanisms.
-  </p>
-
-  <p>
-    Functionally, the system enables users to register, authenticate, and interact with other agencies by posting, commenting, and managing profiles. It also allows administrators to manage users, control permissions, and oversee all communications within the system.
-  </p>
-
-  <p>
-    The project employs modern web technologies including HTML, CSS, and JavaScript for the frontend interface, PHP for backend logic, and MySQL for database management. These technologies work together to ensure a responsive, efficient, and secure application.
-  </p>
-
-  <p>
-    The development process follows a structured software engineering approach, beginning with project definition and requirement gathering, followed by system analysis, database design, implementation, integration, testing, and deployment. Each phase ensures that the system meets its technical and operational goals effectively.
-  </p>
-
-  <p>
-    Future improvements may include advanced analytics, AI-driven security alerts, multi-factor authentication, and enhanced interoperability between agencies to further strengthen national communication and threat management.
-  </p>
-
-  <p>
-    This system is developed as part of an academic research project for Seminar II, focusing on the implementation phase of a secure, data-driven, and collaborative communication platform for national security agencies.
-  </p>
-
-</section>
-
-  </center>
+  </section>
 </main>
 
 

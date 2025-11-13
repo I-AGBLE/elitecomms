@@ -27,7 +27,7 @@ $confirm_human = $_SESSION['signin_data']['confirm_human'] ?? null;;
 
 <main id="public_main">
 
-<?php if (isset($_SESSION['signin'])) : ?>
+  <?php if (isset($_SESSION['signin'])) : ?>
     <div class="alert_message error" id="alert_message">
       <p>
         <?= $_SESSION['signin'];
@@ -36,7 +36,7 @@ $confirm_human = $_SESSION['signin_data']['confirm_human'] ?? null;;
       </p>
     </div>
 
-    <?php elseif (isset($_SESSION['delete_profile_success'])) : ?>
+  <?php elseif (isset($_SESSION['delete_profile_success'])) : ?>
     <div class="alert_message success" id="alert_message">
       <p>
         <?= $_SESSION['delete_profile_success'];
@@ -45,7 +45,7 @@ $confirm_human = $_SESSION['signin_data']['confirm_human'] ?? null;;
       </p>
     </div>
 
-        <?php elseif (isset($_SESSION['signup_success'])) : ?>
+  <?php elseif (isset($_SESSION['signup_success'])) : ?>
     <div class="alert_message success" id="alert_message">
       <p>
         <?= $_SESSION['signup_success'];
@@ -58,12 +58,14 @@ $confirm_human = $_SESSION['signin_data']['confirm_human'] ?? null;;
   <div class="main_log">
     <div class="hero_section">
       <div class="hero_title">
-        <h1>Let Us Hear From You!</h1>
+        <h1>Welcome to elite<span>comms</span></h1>
       </div>
 
       <div class="hero_sub">
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste est exercitationem placeat accusantium dolore molestiae distinctio quod cum eaque vitae.
+          This project is in partial fulfilment of the requirement 
+          for the award of the Degree of Master of Science in Information Technology
+          from the BlueCrest University College, Accra.
         </p>
       </div>
     </div>
@@ -73,14 +75,14 @@ $confirm_human = $_SESSION['signin_data']['confirm_human'] ?? null;;
 
 
 
-    <form action="<?= ROOT_URL ?>index_logic.php" method="POST" >
+    <form action="<?= ROOT_URL ?>index_logic.php" method="POST">
 
-    <div class="standard_login">
-      <input type="text" id="username"  name="telephone_or_username"  value="<?= $telephone_or_username ?>"   placeholder="Telephone or Username" autofocus>
-      <input type="password" name="password"  value="<?= $password ?>"   placeholder="Password">
-      <input type="text" name="confirm_human"  value="<?= $confirm_human ?>"  placeholder="confirm_human" class="confirm_human">
-      <input type="submit" name="submit" value="Login">
-    </div>
+      <div class="standard_login">
+        <input type="text" id="username" name="telephone_or_username" value="<?= $telephone_or_username ?>" placeholder="Telephone or Username" autofocus>
+        <input type="password" name="password" value="<?= $password ?>" placeholder="Password">
+        <input type="text" name="confirm_human" value="<?= $confirm_human ?>" placeholder="confirm_human" class="confirm_human">
+        <input type="submit" name="submit" value="Login">
+      </div>
 
     </form>
 
