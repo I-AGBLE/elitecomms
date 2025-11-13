@@ -17,9 +17,9 @@ if (isset($_POST['submit'])) {
     // Sanitize and validate user input
     $id = filter_var($_POST['id'], FILTER_VALIDATE_INT);
     $previous_avatar = filter_var($_POST['previous_avatar'], FILTER_SANITIZE_SPECIAL_CHARS);
-    $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+   // $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $telephone = trim(filter_var($_POST['telephone'], FILTER_SANITIZE_NUMBER_INT));
-    $gender = filter_var($_POST['gender'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+   // $gender = filter_var($_POST['gender'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $about = trim(filter_var($_POST['about'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $avatar = $_FILES['avatar'];
@@ -28,13 +28,21 @@ if (isset($_POST['submit'])) {
     // Validate input lengths and patterns
     if (!$id || $id <= 0) {
         $_SESSION['edit_profile'] = 'Invalid user ID!';
-    } elseif (empty($username) || strlen($username) > 30) {
-        $_SESSION['edit_profile'] = 'Username must be between 1-30 characters!';
-    } elseif (empty($telephone) || !preg_match('/^[0-9]{10,15}$/', $telephone)) {
+    }
+    
+    //  elseif (empty($username) || strlen($username) > 30) {
+    //     $_SESSION['edit_profile'] = 'Username must be between 1-30 characters!';
+    // } 
+    
+    elseif (empty($telephone) || !preg_match('/^[0-9]{10,15}$/', $telephone)) {
         $_SESSION['edit_profile'] = 'Enter a valid telephone number (10-15 digits)!';
-    } elseif (empty($gender) || !in_array($gender, ['Male', 'Female', 'Non-binary', 'Prefer not to say'])) {
-        $_SESSION['edit_profile'] = 'Select a valid gender!';
-    } elseif (empty($about) || strlen($about) > 500) {
+    } 
+    
+    // elseif (empty($gender) || !in_array($gender, ['Male', 'Female', 'Non-binary', 'Prefer not to say'])) {
+    //     $_SESSION['edit_profile'] = 'Select a valid gender!';
+    // }
+    
+    elseif (empty($about) || strlen($about) > 500) {
         $_SESSION['edit_profile'] = 'About section must be 1-500 characters!';
     } elseif (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 100) {
         $_SESSION['edit_profile'] = 'Enter a valid email (max 100 characters)!';
@@ -121,9 +129,9 @@ if (isset($_POST['submit'])) {
         // Proceed with update if no errors
         if (empty($_SESSION['edit_profile'])) {
             $update_tribesmen_query = "UPDATE tribesmen SET 
-                username = ?, 
+               -- username = ?, 
                 telephone = ?, 
-                gender = ?, 
+              --  gender = ?, 
                 about = ?, 
                 email = ?, 
                 avatar = ? 
@@ -132,7 +140,11 @@ if (isset($_POST['submit'])) {
 
             $stmt = mysqli_prepare($connection, $update_tribesmen_query);
             if ($stmt) {
-                mysqli_stmt_bind_param($stmt, "ssssssi", $username, $telephone, $gender, $about, $email, $avatar_to_insert, $id);
+                mysqli_stmt_bind_param($stmt, "ssssi", 
+               // $username, 
+                $telephone,
+                // $gender, 
+                 $about, $email, $avatar_to_insert, $id);
                 $update_tribesmen_result = mysqli_stmt_execute($stmt);
 
                 if ($update_tribesmen_result) {

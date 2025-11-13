@@ -73,10 +73,13 @@ if (empty($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
     <div class="main_log">
         <div class="editing_profile">
             <div class="editing_title">
-                <h2>Editing Profile.</h2>
+                <h2>Edit Profile</h2>
             </div>
             <div class="editing_sub">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore magni consectetur tempora vel aspernatur illum!</p>
+                <p>
+                    To edit other aspects of your profile,
+                    kindly contact your system administrator.
+                </p>
             </div>
         </div>
 
@@ -87,10 +90,12 @@ if (empty($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
             <input type="hidden" name="previous_avatar" value="<?= htmlspecialchars($tribesmen['avatar'], ENT_QUOTES, 'UTF-8') ?>">
 
             <div class="post_field">
+                <!--
                 <input type="text" name="username" id="username" value="<?= htmlspecialchars($tribesmen['username'], ENT_QUOTES, 'UTF-8') ?>" placeholder="Username" autofocus>
-
+                    -->
                 <input type="tel" name="telephone" value="<?= htmlspecialchars($tribesmen['telephone'], ENT_QUOTES, 'UTF-8') ?>" placeholder="Telephone">
 
+                <!--
                 <select name="gender">
                     <option value="" disabled <?= $gender == '' ? 'selected' : '' ?>>Gender</option>
                     <option value="Male" <?= $gender == 'Male' ? 'selected' : '' ?>>Male</option>
@@ -98,7 +103,7 @@ if (empty($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
                     <option value="Non-binary" <?= $gender == 'Non-binary' ? 'selected' : '' ?>>Non-binary</option>
                     <option value="Prefer not to say" <?= $gender == 'Prefer not to say' ? 'selected' : '' ?>>Prefer not to say</option>
                 </select>
-
+                --> 
                 <input type="email" name="email" value="<?= htmlspecialchars($tribesmen['email'], ENT_QUOTES, 'UTF-8') ?>" placeholder="Email">
 
                 <textarea name="about" maxlength="500"  placeholder="This is where each story begins. Write few lines about who you are, what you do, and what the Tribesmen should know about you. Keep it real, keep it you.."><?= $about ?></textarea>
@@ -117,7 +122,7 @@ if (empty($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
 
             <div class="delete_profile">
                 <p>
-                    Looking to leave the elitecomms platform? Click
+                    Looking forward to leave the elite<span>comms</span> platform? Click
                     <a href="<?= htmlspecialchars(ROOT_URL, ENT_QUOTES, 'UTF-8') ?>admin/delete_profile.php?id=<?= htmlspecialchars($tribesmen['id'], ENT_QUOTES, 'UTF-8') ?>" class="delete_btn">here</a>
                     to delete your account.
                 </p>

@@ -114,9 +114,14 @@ mysqli_stmt_close($stmt);
                 <div class="user_info">
                     <div class="name">
                         <h3><?= $user_detail['username'] ?></h3>
+                        <p><?=  $user_detail['service_number']  ?></p>
                         <?php if ($user_detail['is_admin']): ?>
                             <span class="admin-badge">Admin</span>
                         <?php endif; ?>
+                    </div>
+
+                    <div class="about">
+                        <h3><?= $user_detail['service_branch'] ?></h3>
                     </div>
 
                     <div class="about">
@@ -184,7 +189,7 @@ mysqli_stmt_close($stmt);
                                 <?php endif; ?>
                             </div>
                         <?php else: ?>
-                            <a href="edit_profile.php" id="default_btn">Edit Profile</a>
+                            <a href="<?= ROOT_URL ?>admin/edit_profile.php?id=<?= (int) $user_detail['id'] ?>" id="default_btn">Edit Profile</a>
                         <?php endif; ?>
 
 
